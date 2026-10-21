@@ -8,6 +8,26 @@
     <style>
         body { margin: 0; padding: 0; background-color: #1a1a1a; display: flex; flex-direction: column; align-items: center; }
         img { width: 100%; max-width: 1920px; height: auto; display: block; }
+        
+        /* Pozicování prvků přímo na grafiku strany 13 */
+        .slide-container {
+            position: relative;
+            width: 100%;
+            max-width: 1920px;
+        }
+        .visitor-box {
+            position: absolute;
+            left: 8%;      /* Umístění vlevo od loga */
+            bottom: 12%;   /* Výšková úroveň podkladového nápisu Lioness */
+            text-align: left;
+            font-family: sans-serif;
+        }
+        .donate-box {
+            position: absolute;
+            right: 8%;     /* Příprava na tlačítko vpravo od loga */
+            bottom: 12%;
+            text-align: right;
+        }
     </style>
 </head>
 <body>
@@ -24,24 +44,24 @@
     <img src="LIONESS W EN 10.jpg" alt="10">
     <img src="LIONESS W EN 11.jpg" alt="11">
     <img src="LIONESS W EN 12.jpg" alt="12">
-    <img src="LIONESS W EN 13.jpg" alt="13">
-    <img src="LIONESS W EN 14.jpg" alt="14">
 
-    <!-- CLEAN BLACK FOOTER AT THE VERY BOTTOM OF THE WEBSITE -->
-    <div style="width: 100%; max-width: 1920px; box-sizing: border-box; margin: 0 auto; padding: 30px 8%; display: flex; justify-content: space-between; align-items: center; font-family: sans-serif; background-color: #111111; border-top: 1px solid #222;">
+    <!-- STRANA 13 S INTEGROVANÝM POČÍTADLEM PŘÍMO V GRAFICE -->
+    <div class="slide-container">
+        <img src="LIONESS W EN 13.jpg" alt="13">
         
-        <!-- LEFT SIDE: Reliable Digital Visitor Counter -->
-        <div style="text-align: left;">
-            <p style="letter-spacing: 2px; color: #666; font-size: 11px; margin: 0 0 8px 0; font-weight: bold;">VISITORS</p>
-            <img src="https://kcount.to" alt="Visitors" style="height: 24px; display: block;">
+        <!-- Zelené digitální počítadlo usazené vlevo od loga -->
+        <div class="visitor-box">
+            <p style="letter-spacing: 2px; color: #b8860b; font-size: 11px; margin: 0 0 5px 0; font-weight: bold; opacity: 0.7;">VISITORS</p>
+            <img src="https://kcount.to" alt="Visitors" style="height: 26px; display: block; filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.5));">
         </div>
 
-        <!-- RIGHT SIDE: Reserved for the future DONATE button -->
-        <div style="text-align: right;">
-            <!-- Future donate button placeholder -->
+        <!-- Místo rezervované pro budoucí tlačítko DONATE vpravo od loga -->
+        <div class="donate-box">
+            <!-- Zde se po registraci zapne tlačítko -->
         </div>
-
     </div>
+
+    <img src="LIONESS W EN 14.jpg" alt="14">
 
 </body>
 </html>
