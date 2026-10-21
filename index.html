@@ -8,39 +8,6 @@
     <style>
         body { margin: 0; padding: 0; background-color: #1a1a1a; display: flex; flex-direction: column; align-items: center; }
         img { width: 100%; max-width: 1920px; height: auto; display: block; }
-        
-        /* Pozicování prvků přímo na grafiku strany 13 */
-        .slide-container {
-            position: relative;
-            width: 100%;
-            max-width: 1920px;
-        }
-        .visitor-box {
-            position: absolute;
-            left: 8%;      /* Umístění vlevo od loga */
-            bottom: 12%;   /* Výšková úroveň podkladového nápisu Lioness */
-            text-align: left;
-        }
-        .donate-box {
-            position: absolute;
-            right: 8%;     /* Příprava na tlačítko vpravo od loga */
-            bottom: 12%;
-            text-align: right;
-        }
-        /* Styl pro digitální ciferník */
-        .digital-counter {
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 22px;
-            font-weight: bold;
-            color: #00ffcc;
-            background-color: #111111;
-            padding: 4px 10px;
-            border-radius: 4px;
-            letter-spacing: 2px;
-            display: inline-block;
-            border: 1px solid #222;
-            box-shadow: inset 0 0 10px rgba(0,0,0,0.8), 0px 2px 4px rgba(0,0,0,0.6);
-        }
     </style>
 </head>
 <body>
@@ -57,46 +24,8 @@
     <img src="LIONESS W EN 10.jpg" alt="10">
     <img src="LIONESS W EN 11.jpg" alt="11">
     <img src="LIONESS W EN 12.jpg" alt="12">
-
-    <!-- STRANA 13 S INTEGROVANÝM POČÍTADLEM PŘÍMO V GRAFICE -->
-    <div class="slide-container">
-        <img src="LIONESS W EN 13.jpg" alt="13">
-        
-        <!-- Automatický digitální ciferník -->
-        <div class="visitor-box">
-            <p style="letter-spacing: 2px; color: #b8860b; font-size: 11px; margin: 0 0 5px 0; font-family: sans-serif; font-weight: bold; opacity: 0.7;">VISITORS</p>
-            <div class="digital-counter" id="counter">000124</div>
-        </div>
-
-        <!-- Místo rezervované pro budoucí tlačítko DONATE vpravo od loga -->
-        <div class="donate-box">
-            <!-- Zde se po registraci zapne tlačítko -->
-        </div>
-    </div>
-
+    <img src="LIONESS W EN 13.jpg" alt="13">
     <img src="LIONESS W EN 14.jpg" alt="14">
-
-    <!-- REFRESH-PROOF INTERNAL COUNTER SCRIPT -->
-    <script>
-        (function() {
-            // Kontrola lokální paměti prohlížeče
-            let currentCount = localStorage.getItem('lioness_visits');
-            
-            if (!currentCount) {
-                // Pokud web spouštíme poprvé, nastavíme startovní základ 124
-                currentCount = 124;
-            } else {
-                // Jinak přičteme 1 za každé nové načtení
-                currentCount = parseInt(currentCount) + 1;
-            }
-            
-            // Uložíme nové číslo zpět do paměti
-            localStorage.setItem('lioness_visits', currentCount);
-            
-            // Vpíšeme naformátované šestimístné číslo na kůži
-            document.getElementById('counter').innerText = currentCount.toString().padStart(6, '0');
-        })();
-    </script>
 
 </body>
 </html>
