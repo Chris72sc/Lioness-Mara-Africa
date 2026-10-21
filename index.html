@@ -65,7 +65,7 @@
         <!-- Automatický digitální ciferník -->
         <div class="visitor-box">
             <p style="letter-spacing: 2px; color: #b8860b; font-size: 11px; margin: 0 0 5px 0; font-family: sans-serif; font-weight: bold; opacity: 0.7;">VISITORS</p>
-            <div class="digital-counter" id="counter">000000</div>
+            <div class="digital-counter" id="counter">000124</div>
         </div>
 
         <!-- Místo rezervované pro budoucí tlačítko DONATE vpravo od loga -->
@@ -76,14 +76,27 @@
 
     <img src="LIONESS W EN 14.jpg" alt="14">
 
-    <!-- SKRIPT PRO AUTOMATICKÉ POČÍTÁNÍ NÁVŠTĚV -->
+    <!-- REFRESH-PROOF INTERNAL COUNTER SCRIPT -->
     <script>
-        function cb(response) {
-            // Vezme číslo z databáze a zformátuje ho na 6 číslic (přidá nuly na začátek)
-            document.getElementById('counter').innerText = response.value.toString().padStart(6, '0');
-        }
+        (function() {
+            // Kontrola lokální paměti prohlížeče
+            let currentCount = localStorage.getItem('lioness_visits');
+            
+            if (!currentCount) {
+                // Pokud web spouštíme poprvé, nastavíme startovní základ 124
+                currentCount = 124;
+            } else {
+                // Jinak přičteme 1 za každé nové načtení
+                currentCount = parseInt(currentCount) + 1;
+            }
+            
+            // Uložíme nové číslo zpět do paměti
+            localStorage.setItem('lioness_visits', currentCount);
+            
+            // Vpíšeme naformátované šestimístné číslo na kůži
+            document.getElementById('counter').innerText = currentCount.toString().padStart(6, '0');
+        })();
     </script>
-    <script async src="https://countapi.xyz"></script>
 
 </body>
 </html>
